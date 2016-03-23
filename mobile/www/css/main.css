@@ -1,0 +1,478 @@
+body {
+	margin:0; 
+	padding:0; 
+	text-align: left; 
+	background: #000000; /*383838;*/ 
+	color: #000000;
+	font-weight: bold;
+	font-size: 100%;
+	text-shadow: 1px 1px #000000;
+	font-family: Arial, sans-serif;
+}
+.ui-mobile, .ui-mobile .ui-page {
+    min-height: 0;
+	font-weight: bold;
+	font-size: 100%;
+	text-shadow: 1px 1px #000000;
+}
+#loading {
+	background: #000000; 
+	color: #FFFFFF; 
+	position: fixed; 
+	top: 0; 
+	bottom: 0; 
+	left: 0; 
+	right: 0;
+	background-image:url('../images/ajax-loader.gif');
+	background-position: 50% 50%;
+	background-repeat:no-repeat;
+}
+.ui-overlay-c {
+	background-image:url('../images/bg_sgp.png');
+}
+@font-face {
+    font-family: 'Segment7Standard';
+    src: url('../fonts/Segment7Standard.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+.opacity10 {
+	opacity: 0.1;
+}
+#titre, #menuj, #score, #hsc_today, #hsc_internet, #list_games {
+	background: none; 
+	background-image:url('../images/title_without_bg.png');
+	background-position: 50% 0%;
+	background-repeat: no-repeat;
+}
+#score_j1 {
+	position: fixed; 
+	top: 5pt; 
+	left: 5%; 
+	right: 80%;
+	padding-top: 1pt;
+	text-align: center;
+	font-family: 'Segment7Standard';
+	font-weight: normal;
+	font-style: italic; 
+	color: #ff0000;
+	font-size: 8pt;
+	background: #000000;
+	border: 1px solid red;
+}
+#row_j1 {
+	position: fixed; 
+	top: 25pt; 
+	left: 5%; 
+	right: 85%;
+	padding-top: 1pt;
+	text-align: center;
+	font-family: 'Segment7Standard';
+	font-weight: normal;
+	font-style: italic; 
+	color: #ff0000;
+	font-size: 8pt;
+	background: #000000;
+	border: 1px solid red;
+}
+#score_j2 {
+	position: fixed; 
+	top: 5pt; 
+	left: 80%; 
+	right: 5%;
+	padding-top: 1pt;
+	text-align: center;
+	font-family: 'Segment7Standard';
+	font-weight: normal;
+	font-style: italic; 
+	color: #ff0000;
+	font-size: 8pt;
+	background: #000000;
+	border: 1px solid red;
+}
+#row_j2 {
+	position: fixed; 
+	top: 25pt; 
+	left: 85%; 
+	right: 5%;
+	padding-top: 1pt;
+	text-align: center;
+	font-family: 'Segment7Standard';
+	font-weight: normal;
+	font-style: italic; 
+	color: #ff0000;
+	font-size: 8pt;
+	background: #000000;
+	border: 1px solid red;
+}
+#score_box {
+	position: fixed; 
+	top: 10pt; 
+	left: 42%; 
+	right: 42%;
+	padding-top: 4pt;
+	text-align: center;
+	font-family: 'Segment7Standard';
+	font-weight: normal;
+	font-style: italic; 
+	color: #ff0000;
+	background: #000000;
+	border: 1px solid red;
+}
+#message {
+	position: fixed; 
+	top: 40pt; 
+	left: 20%; 
+	right: 20%;
+	padding-top: 1pt;
+	text-align: center;
+	text-align: center;
+	font-family: 'Segment7Standard';
+	font-weight: normal;
+	font-style: italic; 
+	font-size: 8pt;
+	color: #ff0000;
+	background: #000000;
+	border: 1px solid red;
+}
+
+#game {
+	background-image:url('../images/bg_sgp.png');
+}
+
+.noover {
+	overflow-y: hidden;
+}
+
+.help-text {
+	font-weight: normal; 
+	font-size: 10pt; 
+	text-shadow: none; 
+	text-align: justify; 
+	padding: 0.5em;
+}
+
+table { 
+	margin: auto; 
+	border: none;
+}
+table.highscore {
+	width: 90%; 
+	color: #FFFFFF;
+	text-shadow: 1px 1px #000000;
+}
+table.highscore th {
+	color: #00ffff;
+}
+tr { 
+	padding: 0; 
+	margin: 0;
+}
+
+td {
+	border:none; 
+	padding:0; 
+	margin:0;
+}
+.hlg {
+	color: #FFFF00;
+}
+table.highscore td {
+	background: none;
+}
+
+#brake {
+	position: fixed; 
+	top: auto; 
+	left: 0; 
+	right: 0; 
+	bottom: 0; 
+	text-align: center; 
+	z-index: 999; 
+	color: #FFFF00; 
+	opacity: 0.5;
+	height: 128px; 
+	background-size: 128px 128px;
+	background-position: 50% 50%;
+	background-repeat:no-repeat;
+}
+.bon {
+	background-image:url('../images/brake_on.png')
+}
+.boff {
+	background-image:url('../images/brake_off.png')
+}
+#horn {
+	position: fixed; 
+	top: auto; 
+	left: 0; 
+	right: 0; 
+	bottom: 0; 
+	text-align: center; 
+	z-index: 900; 
+	color: #FFFF00; 
+	opacity: 0.5;
+	height: 128px; 
+	background-size: 128px 128px;
+	background-position: 80%;
+	background-repeat:no-repeat;
+}
+.hon {
+	background-image:url('../images/horn_on.png')
+}
+.hoff {
+	background-image:url('../images/horn_off.png')
+}
+#plane {
+	position: fixed; 
+	top: auto; 
+	left: 0; 
+	right: 0; 
+	bottom: 0; 
+	text-align: center; 
+	z-index: 900; 
+	color: #FFFF00; 
+	opacity: 0.5;
+	height: 128px; 
+	background-size: 128px 128px;
+	background-position: 20%;
+	background-repeat:no-repeat;
+}
+.pon {
+	background-image:url('../images/plane_on.png')
+}
+.poff {
+	background-image:url('../images/plane_off.png')
+}
+
+/* CSS mode DESKTOP */
+@media only screen and (min-width: 1024px) {
+	#titre, #menuj, #score, #hsc_today, #hsc_internet, #list_games {
+		background-size: 1024px 1824px;
+	}
+	#brake {
+		height: 128px; 
+		background-size: 128px 128px;
+		background-position: 50% 50%;
+		background-repeat:no-repeat;
+	}
+	#horn {
+		height: 128px; 
+		background-size: 128px 128px;
+		background-position: 80%;
+		background-repeat:no-repeat;
+	}
+	#plane {
+		height: 128px; 
+		background-size: 128px 128px;
+		background-position: 20%;
+		background-repeat:no-repeat;
+	}
+}
+@media only screen and (max-width: 1023px) {
+	#titre, #menuj, #score, #hsc_today, #hsc_internet, #list_games {
+		background-size: 800px 1425px;
+	}
+	#brake {
+		height: 128px; 
+		background-size: 128px 128px;
+		background-position: 50% 50%;
+		background-repeat:no-repeat;
+	}
+	#horn {
+		height: 128px; 
+		background-size: 128px 128px;
+		background-position: 80%;
+		background-repeat:no-repeat;
+	}
+	#plane {
+		height: 128px; 
+		background-size: 128px 128px;
+		background-position: 20%;
+		background-repeat:no-repeat;
+	}
+}
+@media only screen and (max-width: 799px) {
+	#titre, #menuj, #score, #hsc_today, #hsc_internet, #list_games {
+		background-size: 720px 1282px;
+	}
+	#brake {
+		height: 128px; 
+		background-size: 128px 128px;
+		background-position: 50% 50%;
+		background-repeat:no-repeat;
+	}
+	#horn {
+		height: 128px; 
+		background-size: 128px 128px;
+		background-position: 80%;
+		background-repeat:no-repeat;
+	}
+	#plane {
+		height: 128px; 
+		background-size: 128px 128px;
+		background-position: 20%;
+		background-repeat:no-repeat;
+	}
+}
+@media only screen and (max-width: 719px) {
+	#titre, #menuj, #score, #hsc_today, #hsc_internet, #list_games {
+		background-size: 640px 1140px;
+	}
+	#brake {
+		height: 128px; 
+		background-size: 128px 128px;
+		background-position: 50% 50%;
+		background-repeat:no-repeat;
+	}
+	#horn {
+		height: 128px; 
+		background-size: 128px 128px;
+		background-position: 80%;
+		background-repeat:no-repeat;
+	}
+	#plane {
+		height: 128px; 
+		background-size: 128px 128px;
+		background-position: 20%;
+		background-repeat:no-repeat;
+	}
+}
+@media only screen and (max-width: 639px) {
+	#titre, #menuj, #score, #hsc_today, #hsc_internet, #list_games {
+		background-size: 600px 1069px;
+	}
+	#brake {
+		height: 128px; 
+		background-size: 128px 128px;
+		background-position: 50% 50%;
+		background-repeat:no-repeat;
+	}
+	#horn {
+		height: 128px; 
+		background-size: 128px 128px;
+		background-position: 80%;
+		background-repeat:no-repeat;
+	}
+	#plane {
+		height: 128px; 
+		background-size: 128px 128px;
+		background-position: 20%;
+		background-repeat:no-repeat;
+	}
+}
+@media only screen and (max-width: 599px) {
+	#titre, #menuj, #score, #hsc_today, #hsc_internet, #list_games {
+		background-size: 512px 912px;
+	}
+	#brake {
+		height: 64px; 
+		background-size: 64px 64px;
+		background-position: 50% 50%;
+		background-repeat:no-repeat;
+	}
+	#horn {
+		height: 64px; 
+		background-size: 64px 64px;
+		background-position: 80%;
+		background-repeat:no-repeat;
+	}
+	#plane {
+		height: 64px; 
+		background-size: 64px 64px;
+		background-position: 20%;
+		background-repeat:no-repeat;
+	}
+}
+@media only screen and (max-width: 511px) {
+	#titre, #menuj, #score, #hsc_today, #hsc_internet, #list_games {
+		background-size: 480px 855px;
+	}
+	#brake {
+		height: 64px; 
+		background-size: 64px 64px;
+		background-position: 50%;
+		background-repeat:no-repeat;
+	}
+	#horn {
+		height: 64px; 
+		background-size: 64px 64px;
+		background-position: 80%;
+		background-repeat:no-repeat;
+	}
+	#plane {
+		height: 64px; 
+		background-size: 64px 64px;
+		background-position: 20%;
+		background-repeat:no-repeat;
+	}
+}
+@media only screen and (max-width: 479px) {
+	#titre, #menuj, #score, #hsc_today, #hsc_internet, #list_games {
+		background-size: 400px 712px;
+	}
+	#brake {
+		height: 64px; 
+		background-size: 64px 64px;
+		background-position: 50% 50%;
+		background-repeat:no-repeat;
+	}
+	#horn {
+		height: 64px; 
+		background-size: 64px 64px;
+		background-position: 80%;
+		background-repeat:no-repeat;
+	}
+	#plane {
+		height: 64px; 
+		background-size: 64px 64px;
+		background-position: 20%;
+		background-repeat:no-repeat;
+	}
+}
+@media only screen and (max-width: 399px) {
+	#titre, #menuj, #score, #hsc_today, #hsc_internet, #list_games {
+		background-size: 320px 570px;
+	}
+	#brake {
+		height: 64px; 
+		background-size: 64px 64px;
+		background-position: 50% 50%;
+		background-repeat:no-repeat;
+	}
+	#horn {
+		height: 64px; 
+		background-size: 64px 64px;
+		background-position: 80%;
+		background-repeat:no-repeat;
+	}
+	#plane {
+		height: 64px; 
+		background-size: 64px 64px;
+		background-position: 20%;
+		background-repeat:no-repeat;
+	}
+}
+@media only screen and (max-width: 319px) {
+	#titre, #menuj, #score, #hsc_today, #hsc_internet, #list_games {
+		background-size: 240px 428px;
+	}
+	#brake {
+		height: 32px; 
+		background-size: 32px 32px;
+		background-position: 50% 50%;
+		background-repeat:no-repeat;
+	}
+	#horn {
+		height: 32px; 
+		background-size: 32px 32px;
+		background-position: 80%;
+		background-repeat:no-repeat;
+	}
+	#plane {
+		height: 32px; 
+		background-size: 32px 32px;
+		background-position: 20%;
+		background-repeat:no-repeat;
+	}
+}

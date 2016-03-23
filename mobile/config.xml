@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="io.cordova.hellocordova" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>The Highway</name>
+    <description>
+        A simple car race game.
+    </description>
+    <author email="darken33@free.fr" href="http://darken33.free.fr/">
+        Philippe Bousquet
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+</widget>

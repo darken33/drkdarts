@@ -1,0 +1,51 @@
+/**
+ * lang.en.js : support de langue Anglais
+ */ 
+texte_menu_jouer['en'] = "Play";
+texte_menu_param['en'] = "Settings";
+texte_menu_aide['en'] = "About";
+texte_menu_dons['en'] = "Help me";
+texte_menu_quitter['en'] = "Quit";
+texte_alert_quitter['en'] = "Do you really want to quit ?";
+texte_meilleur_score_dujour['en'] = "Today's Highscores";
+texte_meilleur_score_mondial['en'] = "World's Highscores";
+texte_hsc_nom['en'] = "Name";
+texte_hsc_score['en'] = "Score";
+texte_erreur_chargement_score['en'] = "Could not load scores<br/>Check your Internet connection...";
+texte_aide_title['en'] = "Help";	
+texte_aide_content['en'] = '<strong>Darts Contest v'+game_version+'</strong> is a darts game for smartphone and tablet.<br/>This game is developed and maintained by Philippe Bousquet &lt;darken33@free.fr&gt; since June 2015 and is distributed under the terms of the <a href=\"http://www.gnu.org/licenses/gpl.html\" target=\"new\">GNU General Public License v3</a>.<br/>Graphics come from <a href="https://openclipart.org/" target="new">OpenClipart.org</a> :<ul><li>The dart : <a href="https://openclipart.org/detail/183880/dart" target="new">Dart</a></li><li>The viewfinder : <a href="https://openclipart.org/detail/192457/yellow-target" target="new">yellow target</a></li><li>The dartboard : <a href="https://openclipart.org/detail/12737/dartboard-template" target="new">Dartboard Template</a></li></ul>the rest has been achieved through free tools Gimp and Inkscape and is distributed under the terms of the <a href=\"http://creativecommons.org/licenses/by-sa/3.0/fr/\" target=\"new\">Creative Commons BY-SA</a>.<br/>Sound FX come from <a href=\"http://soundbible.com/\" target=\"new\">SoundBible.com</a> :<ul><li>Dart : <a href="http://soundbible.org/1176-Sword-Swing.html" target="new">Sword Swing Sound</a></li><li>Buzzer : <a href="http://soundbible.org/1206-Door-Buzzer.html" target="new">Door Buzzer Sound</a></li></ul>The others are from Philippe Bousquet and were processed by Audacity. They are distributed under the terms of the <a href=\"http://creativecommons.org/licenses/by-sa/3.0/fr/\" target=\"new\">Creative Commons BY-SA</a>.<br/>For more information and follow the news of this game please visit <a href="http://darken33.free.fr/wordpress/?p=1375" target="new">the Darts Contest web page</a>.<p/><strong>How to play?</strong><br/>Tap the <strong>Play</strong> button to launch the game, and choose <strong>1 Player</strong> or <strong>2 Players</strong>. Then, just rotate your device to move the viewfinder, and tap the screen to shoot. try to make the highest score possible.<p/><strong>Game rule (Wikipedia fr)</strong><br><em>The 501</em><br/>Each player starts with a capital of 501 points.  Then launches a set of three darts (or less), we add the score of these and subtract the result to its capital to be the first at exactly zero (not to exceed).<br/><br/><em>The 301</em><br/>The rule 301 is the same as the 501 except that the players start the game with a score of 301 instead of 501.<br/><br/><em>The Double Out</em><br/>This option adds a difficulty to the game. Indeed, in order to complete the game, players must launch their last arrow in a "double".';
+texte_popup_normal['en'] = '<div data-role="content" style="text-align: justify; font-size: 90%"><strong>Play :</strong> start the game<br/><strong>Settings :</strong> change your configuration<br/><strong>About :</strong> show help<br/><strong>Help me :</strong> support this game<br/><strong>Quit :</strong> close the game<br/><br/>Just rotate your device to move the viewfinder, and tap the screen to shoot. Try to make the highest score possible.<br/><br/>Various games are offered:<ul><li>The 301</li><li>The 301 Double Out</li><li>The 501</li><li>The 501 Double Out (official game)</li></ul></div>';
+texte_param_title['en'] = "Settings";
+texte_nom['en'] = "Name :";   
+texte_options['en'] = "Options :";
+texte_option_aide['en'] = "Help on start";
+texte_option_sons['en'] = "Play sounds";
+texte_option_share['en'] = "Share your score on Internet";
+texte_option_langage['en'] = "Language :";
+texte_option_langue_fr['en'] = "French";
+texte_option_langue_en['en'] = "English";
+texte_option_langue_es['en'] = "Spanish";
+texte_option_difficulty['en'] = "Difficulty";
+texte_loading['en'] = "Loading, please wait...";
+texte_dons_content['en'] = "This game is designed to run on a majority of machines (tablets or smartphones). My website shows the machines on which the game has been validated. If you test this application on a machine not listed, I would appreciate if you leave me a message telling me on which machine you tested the game<br/>In case the game does not work properly, you can also leave me a message telling me your machine and screen resolution so that I improve the game<br/><br/><div style=\"text-align:center;\"><form action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"get\" target=\"_blank\"><input type=\"hidden\" name=\"cmd\" value=\"_s-xclick\"><input type=\"hidden\" name=\"hosted_button_id\" value=\"NAQPHMMEFGQ8A\"><input type=\"image\" src=\"images/en/btn_donateCC_LG.gif\" border=\"0\" name=\"submit\" alt=\"Donate\"></form></div><br/>Do not hesitate to make a donation. This would allow me to finance my work to offer you other free games and applications.";
+texte_wait['en'] = "PLEASE WAIT ...";
+texte_ready['en'] = "READY ???";
+texte_shoot['en'] = "SHOOT !!!";
+texte_option_diff_easy['en'] = "Easy";
+texte_option_diff_average['en'] = "Average";
+texte_option_diff_difficult['en'] = "Hard";
+texte_option_type['en'] = "Game :";
+texte_option_type_301['en'] = "301";
+texte_option_type_301_dout['en'] = "301 Double Out";
+texte_option_type_501['en'] = "501";
+texte_option_type_501_dout['en'] = "501 Double Out";
+texte_menu_1player['en'] = "1 Player";
+texte_menu_2players['en'] = "2 Players";
+texte_menu_online['en'] = "Online";
+texte_menu_back['en'] = "Back";
+texte_dart_name['en'] = "Darts";
+texte_game_complete['en'] = "Completed !";
+texte_player1['en'] = "Player 1";
+texte_player2['en'] = "Player 2";
+texte_winner['en'] = "Winner";
+

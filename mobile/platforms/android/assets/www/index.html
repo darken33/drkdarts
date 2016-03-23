@@ -1,0 +1,341 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Darts Contest</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="css/DartsContest.min.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" />
+		<link rel="stylesheet" href="css/main.css">
+		<script src="js/lang/lang.js" type="text/javascript"></script>  
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/async_storage.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/createjs-2014.12.12.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="cordova.js" type="text/javascript" charset="utf-8"></script> 
+		<script src="js/config.js" type="text/javascript"></script>  
+		<script src="js/canvas.js" type="text/javascript"></script>  
+		<script src="js/sound.js" type="text/javascript"></script>  
+		<script src="js/accel.js" type="text/javascript"></script>
+		<script src="js/highscores.js" type="text/javascript"></script>  
+		<script src="js/game.js" type="text/javascript"></script>
+	</head>
+	<body>
+
+		<audio id="dart_snd">
+			<source src="./sounds/dartShot.ogg" type="audio/ogg"> 
+			<source src="./sounds/dartShot.mp3" type="audio/mpeg"> 
+		</audio>
+
+		<audio id="player1_snd">
+			<source src="./sounds/player1.ogg" type="audio/ogg"> 
+			<source src="./sounds/player1.mp3" type="audio/mpeg"> 
+		</audio>
+
+		<audio id="player2_snd">
+			<source src="./sounds/player2.ogg" type="audio/ogg"> 
+			<source src="./sounds/player2.mp3" type="audio/mpeg"> 
+		</audio>
+
+		<audio id="wait_snd">
+			<source src="./sounds/wait.ogg" type="audio/ogg"> 
+			<source src="./sounds/wait.mp3" type="audio/mpeg"> 
+		</audio>
+
+		<audio id="ready_snd">
+			<source src="./sounds/ready.ogg" type="audio/ogg"> 
+			<source src="./sounds/ready.mp3" type="audio/mpeg"> 
+		</audio>
+
+		<audio id="shoot_snd">
+			<source src="./sounds/shoot.ogg" type="audio/ogg"> 
+			<source src="./sounds/shoot.mp3" type="audio/mpeg"> 
+		</audio>
+
+		<audio id="centre_snd">
+			<source src="./sounds/centre.ogg" type="audio/ogg"> 
+			<source src="./sounds/centre.mp3" type="audio/mpeg"> 
+		</audio>
+
+		<audio id="simple_snd">
+			<source src="./sounds/simple.ogg" type="audio/ogg"> 
+			<source src="./sounds/simple.mp3" type="audio/mpeg"> 
+		</audio>
+
+		<audio id="double_snd">
+			<source src="./sounds/double.ogg" type="audio/ogg"> 
+			<source src="./sounds/double.mp3" type="audio/mpeg"> 
+		</audio>
+
+		<audio id="triple_snd">
+			<source src="./sounds/triple.ogg" type="audio/ogg"> 
+			<source src="./sounds/triple.mp3" type="audio/mpeg"> 
+		</audio>
+
+		<audio id="buzzer_snd">
+			<source src="./sounds/buzzer.ogg" type="audio/ogg"> 
+			<source src="./sounds/buzzer.mp3" type="audio/mpeg"> 
+		</audio>
+
+		<audio id="congrat_snd">
+			<source src="./sounds/congratulation.ogg" type="audio/ogg"> 
+			<source src="./sounds/congratulation.mp3" type="audio/mpeg"> 
+		</audio>
+		
+		<!-- 
+			page de Chargement
+		-->
+		<div data-role="page" id="loading" data-theme="c">
+			<div data-role="content">&nbsp;</div>	
+		</div>
+
+
+		<!--
+			page de Titre
+		-->
+		<div data-role="page" id="titre" data-theme="c">
+			<div data-role="content" id="helpOnStart" data-theme="d" class="ui-body ui-body-b ui-corner-all" style="width: 85%; margin-left: auto; margin-right: auto; margin-top:30%; display: none; opacity: 0.9;">
+				<div id="popup_content">I have a close button at the top right corner with simple HTML markup.</div>
+			</div>
+			<div id="menu" style="width: 85%; margin-left: auto; margin-right: auto; margin-top:50%; display: none;">
+				<a href="#" id="m_txt_jouer" data-role="button" data-theme="b" data-icon="star" data-inline="false">Play</a>
+				<a href="#" id="m_txt_param" data-role="button" data-theme="a" data-icon="gear" data-inline="false">Configure</a>
+				<a href="#" id="m_txt_aide" data-role="button" data-theme="a" data-icon="info" data-inline="false">About</a>
+				<a href="#" id="m_txt_dons" data-role="button" data-theme="a" data-icon="heart" data-inline="false">Help me</a>
+				<a href="#" id="m_txt_quitter" data-role="button" data-theme="c" data-icon="power" data-inline="false">Quit</a>
+			</div>	
+		</div>
+
+		<!--
+			page du Menu jouer
+		-->
+		<div data-role="page" id="menuj" data-theme="c">
+			<div id="menu" style="width: 85%; margin-left: auto; margin-right: auto; margin-top:50%;">
+				<a href="#" id="m_txt_1player" data-role="button" data-theme="b" data-icon="star" data-inline="false">1 Player</a>
+				<a href="#" id="m_txt_2players" data-role="button" data-theme="b" data-icon="star" data-inline="false">2 Players</a>
+				<a href="#" id="m_txt_online" data-role="button" data-theme="b" data-icon="navigation" data-inline="false" class="ui-disabled">Play Online</a>
+				<a href="#" id="m_txt_back" data-role="button" data-theme="a" data-icon="back" data-inline="false">Menu</a>
+			</div>	
+		</div>
+
+		<!--
+			page du Jeu
+		-->	
+		<div data-role="page" id="game" data-theme="c" style="text-align: center;">
+			<div id="score_j1">0</div>
+			<div id="row_j1">0</div>
+			<div id="score_j2">0</div>
+			<div id="row_j2">0</div>
+			<div id="score_box">0</div>
+			<div id="message">Attendez</div>
+			<canvas id="myCanvas" width="480" height="720" style="background-color: none";></canvas>
+		</div>
+
+		<!--
+			page de Paramètres
+		-->		
+		<div data-role="page" id="param" data-theme="c">
+			<div data-role="header" style="position: fixed; top:0; left: 0; right: 0;">
+				<a href="#" id="param_back" data-role="button" data-theme="c" data-icon="carat-l" data-iconpos="notext" data-inline="true">Back</a>
+				<h1 id="txt_param">Settings</h1>
+			</div>
+			<div data-role="content" style="margin-top: 2.5em;">
+				<div class="ui-field-contain">
+					<label for="game_lang" id="l_game_lang">Lang :</label>
+					<select id="game_lang" name="game_lang" data-native-menu="true" tabindex="-1">
+						<option value="fr">French</option>
+						<option value="en">English</option>
+						<option value="en">Spanish</option>
+					</select>
+				</div>
+				<div class="ui-field-contain">
+					<label for="game_name" id="l_game_name">Name :</label>
+					<input name="game_name" id="game_name" data-theme="c" placeholder="Player 1" value="" maxlength="15" type="text">
+				</div>
+				<div class="ui-field-contain">
+					<label for="game_type" id="l_game_type">Game :</label>
+					<select id="game_type" name="game_type" data-native-menu="true" tabindex="-1">
+						<option value="1">301</option>
+					</select>
+				</div>
+				<div class="ui-field-contain">
+					<label for="game_difficulty" id="l_game_difficulty">Difficulty :</label>
+					<select id="game_difficulty" name="game_difficulty" data-native-menu="true" tabindex="-1">
+						<option value="1">Facile</option>
+						<option value="2">Normal</option>
+						<option value="3">Difficile</option>
+						<option value="4">D&eacute;mentiel</option>
+					</select>
+				</div>
+				<div id="checkboxes1" class="ui-field-contain">
+					<fieldset data-role="controlgroup" data-type="vertical">
+						<legend id="l_game_options">Options :</legend>
+						<label><input id="game_help" name="game_help" data-theme="c" type="checkbox"><span id="l_game_help">Help on start</span></label>
+						<label><input id="game_sound" name="game_sound" data-theme="c" type="checkbox"><span id="l_game_sound">Play sounds</span></label>
+						<label><input id="game_score" name="game_score" data-theme="c" type="checkbox"><span id="l_game_score">Share score on Internet</span></label>
+					</fieldset>
+				</div>
+			</div>    
+		</div>
+
+		<!--
+			page de dons
+		-->	
+		<div data-role="page" data-theme="e" id="pdons" style="overflow-y: visible">
+			<div data-role="header" data-theme="c" style="position: fixed; top:0; left: 0; right: 0;">
+				<a href="#" id="dons_back" data-role="button" data-theme="c" data-icon="carat-l" data-iconpos="notext" data-inline="true">Back</a>
+				<h1 id="dons_title">Help me</h1>
+			</div>
+			<div data-role="content" data-theme="e" style="margin-top: 2.5em; text-align: justify;">
+				<div class="help-text" style="position: static;" id="dons_content">
+					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+						<input type="hidden" name="cmd" value="_s-xclick" />
+						<input type="hidden" name="hosted_button_id" value="EUDWRBPPJV46Q" />
+						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="Donate" />
+						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<!--
+			page d'aide
+		-->	
+		<div data-role="page" data-theme="e" id="aide" style="overflow-y: visible">
+			<div data-role="header" data-theme="c" style="position: fixed; top:0; left: 0; right: 0;">
+				<a href="#" id="help_back" data-role="button" data-theme="c" data-icon="carat-l" data-iconpos="notext" data-inline="true">Back</a>
+				<h1 id="help_title">About</h1>
+			</div>
+			<div data-role="content" data-theme="e" style="margin-top: 2.5em; text-align: justify;">
+				<div class="help-text" style="position: static;" id="help_content">
+				<strong>Shotgun Parctise v1.0</strong> est jeu de tire sur cible, vous d&eacute;placer le viseur au plus pr&egrave;s du centre de la cible, puis "tirer" en touchant l'&eacute;cran de votre appareil.<br/>
+				Ce jeu est d&eacute;velopp&eacute; et maintenu par Philippe Bousquet &lt;darken33@free.fr&gt; depuis avril 2015 et est distribu&eacute; selon les termes de la <a href="http://www.gnu.org/licenses/gpl.html" target="new">GNU General Public License v3</a>.<br/> 
+				Les graphismes proviennent du site <a href="https://openclipart.org/" target="new">OpenClipart.org</a> :
+				<ul>
+					<li>Le pistolet : <a href="https://openclipart.org/detail/169727/tokarev-tt33" target="new">Tokarev TT-33</a></li>
+					<li>Les balles : <a href="https://openclipart.org/detail/170750/bullet" target="new">bullet</a></li>
+					<li>Le viseur : <a href="https://openclipart.org/detail/168253/target" target="new">Target</a></li>
+					<li>La cible : <a href="https://openclipart.org/detail/202053/cible" target="new">Cible</a></li>
+				</ul>
+				Le reste a &eacute;t&eacute; r&eacute;alis&eacute; au travers des outils libres The Gimp et Inkscape et est distribu&eacute; sous licence <a href="http://creativecommons.org/licenses/by-sa/3.0/fr/" target="new">Creative Commons BY-SA</a>.<br/>
+				Les effets sonores quant &agrave; eux proviennent du site <a href="http://soundbible.com/" target="new">SoundBible.com</a> :
+				<ul>
+					<li>Le tir : <a href="https://openclipart.org/detail/169727/tokarev-tt33" target="new">Tokarev TT-33</a></li>
+				</ul>	
+				<br/>
+				Pour plus d'informations et suivre l'actualit&eacute; de ce jeu veuillez vous rendre sur <a href="http://darken33.free.fr/wordpress/?p=762" target="new">la page Web de Shotgun Practise</a>.    
+				<p/>
+				<strong>Comment jouer ?</strong><br/>
+				Pour lancer la partie appuyez sur le bouton <strong>Jouer</strong>, il suffit ensuite de pivoter votre appareil, pour d&eacute;placer le viseur. Appuyez ensuite sur l'&eacute;cran pour tire. Bonne chance..<br/>
+				<p/>
+				</div>
+			</div>
+		</div>
+
+		<!-- 
+			page de liste des parties online
+		-->
+		<div data-role="page" id="list_games" data-theme="c">
+			<div data-role="content" data-theme="d"  data-form="ui-body-b" class="ui-body ui-body-b ui-corner-all" style="width: 60%; margin-left: auto; margin-right: auto; margin-top: 15pt; opacity: 0.9;">
+				darken33<br/>
+				Partie : 301 - Facile<br/>
+				<a href="#" id="krtezkzempo54643130BH5654831343" class="joinp" data-role="button" data-theme="b" data-icon="star" data-inline="false">Rejoindre la partie</a>
+			</div>
+			<div data-role="content" data-theme="d"  data-form="ui-body-b" class="ui-body ui-body-b ui-corner-all" style="width: 60%; margin-left: auto; margin-right: auto; margin-top: 15pt; opacity: 0.9;">
+				darken33<br/>
+				Partie : 301 - Facile<br/>
+				<a href="#" id="krtezkzempo54643130BH5654831343" class="joinp" data-role="button" data-theme="b" data-icon="star" data-inline="false">Rejoindre la partie</a>
+			</div>
+			<div data-role="content" data-theme="d"  data-form="ui-body-b" class="ui-body ui-body-b ui-corner-all" style="width: 60%; margin-left: auto; margin-right: auto; margin-top: 15pt; opacity: 0.9;">
+				darken33<br/>
+				Partie : 301 - Facile<br/>
+				<a href="#" id="krtezkzempo54643130BH5654831343" class="joinp" data-role="button" data-theme="b" data-icon="star" data-inline="false">Rejoindre la partie</a>
+			</div>
+			<div>
+				<a href="#" id="create" class="joinp" data-role="button" data-theme="a" data-icon="gear" data-inline="false">Proposer une partie</a>
+			</div>	
+		</div>		
+
+		<!-- 
+			page de Score
+		-->
+		<div data-role="page" id="score" data-theme="c">
+			<div data-role="content" data-theme="d"  data-form="ui-body-b" class="ui-body ui-body-b ui-corner-all" style="width: 60%; margin-left: auto; margin-right: auto; margin-top:30%; opacity: 0.9; text-align: center;">
+				<h1 id="titre_game">301 Completed !!!</h1>
+				<h1 id="nb_darts" style="color:#FFFF00">15 fléchettes</h1>
+				<h1 id="score_final" style="color:#FFFF00">126006</h1>
+			</div>
+			<div style="background: none; position: fixed; right: 0; bottom: 0;"><a href="#" id="b_score" data-role="button" data-theme="c" data-icon="arrow-r" data-iconpos="notext" data-inline="true">Next</a></div>
+		</div>		
+
+		<!--
+			page Higscores Today
+		-->	
+		<div data-role="page" id="hsc_today" data-theme="c">
+			<div data-role="content" data-theme="d"  data-form="ui-body-b" class="ui-body ui-body-b ui-corner-all" style="width: 85%; margin-left: auto; margin-right: auto; margin-top:25%; opacity: 0.9; text-align: center;"> 
+				<h3 id="tx_hsc_today" style="color: #FFFF00">Today's Highscore</h3>
+				<table id="t_hsc_today" style="width: 100%"  class="highscore">
+					<thead>
+					<tr>
+						<th style="color: #FF00FF">#</th>
+						<th style="color: #FF00FF">Nom</th>
+						<th style="color: #FF00FF">Score</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr><td>1.</td><td>Player 1</td><td>12158</td></tr>
+						<tr><td>2.</td><td>Player 1</td><td>12158</td></tr>
+						<tr><td>3.</td><td>Player 1</td><td>12158</td></tr>
+						<tr><td>4.</td><td>Player 1</td><td>12158</td></tr>
+						<tr><td>5.</td><td>Player 1</td><td>12158</td></tr>
+						<tr><td>6.</td><td>Player 1</td><td>12158</td></tr>
+						<tr><td>7.</td><td>Player 1</td><td>12158</td></tr>
+						<tr><td style="color: #FFFF00">8.</td><td style="color: #FFFF00">Player 1</td><td style="color: #FFFF00">12158</td></tr>
+						<tr><td>9.</td><td>Player 1</td><td>12158</td></tr>
+						<tr><td>10.</td><td>Player 1</td><td>12158</td></tr>
+						<tr><td colspan="3">...</td></tr>
+						<tr><td>500.</td><td>Player 1</td><td>12158</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<div style="background: none; position: fixed; right: 0; bottom: 0;"><a href="#" id="b_hsc_today" data-role="button" data-theme="c" data-icon="arrow-r" data-iconpos="notext" data-inline="true">Next</a></div>
+		</div>
+
+		<!--
+			page Higscores Today
+		-->	
+		<div data-role="page" id="hsc_internet" data-theme="c">
+			<div data-role="content" data-theme="d"  data-form="ui-body-b" class="ui-body ui-body-b ui-corner-all" style="width: 85%; margin-left: auto; margin-right: auto; margin-top:25%; opacity: 0.9; text-align: center;"> 
+				<h3  id="tx_hsc_internet" style="color: #FFFF00">World's Highscore</h3>
+				<table id="t_hsc_internet" style="width: 100%"  class="highscore">
+					<thead>
+					<tr>
+						<th style="color: #FF00FF">#</th>
+						<th style="color: #FF00FF">Nom</th>
+						<th style="color: #FF00FF">Score</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr><td>1.</td><td>Player 1</td><td>12158</td></tr>
+						<tr><td>2.</td><td>Player 1</td><td>12158</td></tr>
+						<tr><td>3.</td><td>Player 1</td><td>12158</td></tr>
+						<tr><td>4.</td><td>Player 1</td><td>12158</td></tr>
+						<tr><td>5.</td><td>Player 1</td><td>12158</td></tr>
+						<tr><td>6.</td><td>Player 1</td><td>12158</td></tr>
+						<tr><td>7.</td><td>Player 1</td><td>12158</td></tr>
+						<tr><td style="color: #FFFF00">8.</td><td style="color: #FFFF00">Player 1</td><td style="color: #FFFF00">12158</td></tr>
+						<tr><td>9.</td><td>Player 1</td><td>12158</td></tr>
+						<tr><td>10.</td><td>Player 1</td><td>12158</td></tr>
+						<tr><td colspan="3">...</td></tr>
+						<tr><td>500.</td><td>Player 1</td><td>12158</td></tr>
+						</tbody>
+				</table>
+			</div>
+			<div style="background: none; position: fixed; right: 0; bottom: 0;"><a href="#" id="b_hsc_internet" data-role="button" data-theme="c" data-icon="arrow-r" data-iconpos="notext" data-inline="true">Next</a></div>
+		</div>
+		
+		<script src="js/lang/lang.fr.js" type="text/javascript"></script>
+		<script src="js/lang/lang.en.js" type="text/javascript"></script>
+		<script src="js/lang/lang.es.js" type="text/javascript"></script>
+	</body>
+</html>
