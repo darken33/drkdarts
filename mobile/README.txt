@@ -1,4 +1,4 @@
-Darts Contest v1.0
+Darts Contest v1.1
 ------------------------------------------------------------------------
 
 Intrduction
@@ -74,6 +74,10 @@ freedoms :
 
 Changelog
 ---------
+v1.1 : 
+  - Cordova upgrade due to security alert
+  - REST Service moved on http://darken33.net/
+
 v1.0 : 
   - First release of "Darts Contest"
   

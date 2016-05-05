@@ -3,12 +3,12 @@
     "installs_allowed_from": [
         "*"
     ],
-    "version": "1.0",
+    "version": "1.1",
     "name": "Darts Contest",
-    "description": "A darts shooting game.",
+    "description": "A darts game for smartphone.",
     "developer": {
         "name": "Philippe Bousquet",
-        "url": "http://darken33.free.fr"
+        "url": "http://darken33.net/wp/index.php/2015/07/01/darts-contest-a-darts-game-for-smartphone/"
     },
     "orientation": ["portrait"],
     "permissions": {

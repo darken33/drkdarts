@@ -91,6 +91,9 @@
         },
         "org.apache.cordova.media": {
             "PACKAGE_NAME": "fr.free.darken33.games.drkhighway"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "fr.free.darken33.games.drkdarts"
         }
     },
     "dependent_plugins": {

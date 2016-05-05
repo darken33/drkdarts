@@ -33,7 +33,7 @@ function service(score) {
 	var key = "D8C945A4000133333BFC544CB2728B89";
 	var name = game_options.name;
 	var score = score;
-	var url = "http://darken33.free.fr/drkdarts/services/score_service.php?key="+key+"&name="+name+"&score="+score+"&date="+txd+"&diff="+game_options.difficulty+"&type="+game_options.type;
+	var url = "http://darken33.net/applications/services/drkdarts/score_service.php?key="+key+"&name="+name+"&score="+score+"&date="+txd+"&diff="+game_options.difficulty+"&type="+game_options.type;
 	$.getJSON(url, function(data) {
 		fillHighscores(data);
 	}).fail(function() { 

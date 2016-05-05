@@ -53,6 +53,9 @@
         },
         "org.apache.cordova.media": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "fr.free.darken33.games.drkdarts"
         }
     },
     "dependent_plugins": {
